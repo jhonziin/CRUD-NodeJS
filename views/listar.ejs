@@ -1,0 +1,45 @@
+<%- include layout/header.ejs %>
+<div class="container">
+
+		<h2></h2>
+		<h2>Lista de usuarios</h2>
+		<div>
+		<button class="btn btn-default"><a href="../usuarios/cadastro"><span class="glyphicon glyphicon-plus"></span>Cadastrar</a></button>
+		</div>
+		
+		<table class="table table-hover table-bordered">
+			<tr class="info">
+				<th>#</th>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>Telefone</th>
+				<th>Sexo</th>
+
+			</tr>
+
+			<%if(usuario.length){
+			
+			for(var i = 0; i < usuario.length; i++){ %>
+			<tr>
+				<td><%= (i+1) %></td>
+				<td><%= usuario[i].nome %></td>
+				<td><%= usuario[i].email %></td>
+				<td><%= usuario[i].telefone %></td>
+				<td><%= usuario[i].sexo %></td>
+				<td align="center">
+					<a href="../usuarios/editar/<%=usuario[i].id_usuario %>" class="btn-lg"><span class="glyphicon glyphicon-edit"></span></a>
+					<a href="../usuarios/excluir/<%=usuario[i].id_usuario %>" class="btn-lg"><span class="glyphicon glyphicon-remove-circle"></span></a>	
+				</td>
+			</tr>
+
+			<%}
+			
+			}else{%>
+			<tr>
+				<td colspan="3">Sem usuario</td>
+			</tr>
+			<%}%>
+		</table>
+		
+</div>
+	<%- include layout/footer.ejs %>

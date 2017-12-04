@@ -33,7 +33,7 @@
 			user: "root",
 			password: "root",
 			port: 3307,
-			database:"ltp4"
+			database:"mydb"
 		}, "pool")
 	);
 
